@@ -1,0 +1,42 @@
+import React from 'react';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
+
+export default function SchemeScreen() {
+  // Sample data for schemes
+  const schemes = [
+    {
+      title: 'SCHEMEICONIC2',
+      description: 'Scheme 2',
+      validity: 'Offer validity: 19th Aug 2024 to 30th Sept 2024',
+    },
+    {
+      title: 'SCHEMEICONIC3',
+      description: 'Scheme 3',
+      validity: 'Offer validity: 1st Sept 2024 to 31st Oct 2024',
+    }
+  ];
+
+  return (
+    <View style={styles.container}>
+      {/* Top Icons */}
+      <View style={styles.headerIcons}>
+        <MaterialIcons name="notifications-none" size={24} color="green" />
+        <MaterialCommunityIcons name="cart-outline" size={24} color="red" />
+      </View>
+
+      <Text style={styles.title}>Schemes</Text>
+
+      {/* Scheme list */}
+      <ScrollView style={styles.schemeList}>
+        {schemes.map((scheme, index) => (
+          <View key={index} style={styles.schemeCard}>
+            <Text style={styles.schemeTitle}>{scheme.title}</Text>
+            <Text style={styles.schemeDescription}>{scheme.description}</Text>
+            <Text style={styles.schemeValidity}>{scheme.validity}</Text>
+          </View>
+        ))}
+      </ScrollView>
+
+      {/* Bottom Navigation */}
+      <View style
